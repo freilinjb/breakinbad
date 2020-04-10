@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
 import Frase from './components/Frase';
 
@@ -10,6 +10,12 @@ const Boton = styled.button`
   font-size: 1rem 3rem;
   font-size: 2rem;
   border: 2px solid black;
+  transition: background-size .8s ease;
+
+  :hover {
+    cursor:pointer;
+    background-size: 400;
+  }
 `;
 
 const Contenedor = styled.div`
@@ -18,6 +24,8 @@ const Contenedor = styled.div`
   padding-top:5rem;
   flex-direction: column;
 `;
+
+
 
 function App() {
 
@@ -30,6 +38,13 @@ function App() {
     // console.log(frase[0]);
     setFrase(frase[0]);
   }
+
+  //cargar una frase
+  //CUANDO EL COMPONENTE ESTE LISTO REALIZA UNA CONSULTA
+  useEffect( () => {
+    consultarAPI();
+    //[] con las llaves vacias solo se carga una vez
+  }, []);
   return (
     <Contenedor>
       <Frase frase={frase}/>
@@ -39,3 +54,4 @@ function App() {
 }
 
 export default App;
+ 
