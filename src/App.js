@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled from '@emotion/styled';
+import Frase from './components/Frase';
 
 const Boton = styled.button`
   background:-webkit-linear-gradient(top left, #007d35 0%, #007d35 40%, #0f574e 100%);
@@ -31,6 +32,7 @@ function App() {
   }
   return (
     <Contenedor>
+      <Frase frase={frase}/>
       <Boton onClick={ () => consultarAPI()}>Obtener cambios</Boton>
     </Contenedor>
   );
