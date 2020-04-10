@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
 
 const Boton = styled.button`
@@ -20,11 +20,14 @@ const Contenedor = styled.div`
 
 function App() {
 
+  const [frase, setFrase] = useState({});
+
   const consultarAPI = async () => {
     const api = await fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes');
 
     const frase = await api.json();
-    console.log(frase);
+    // console.log(frase[0]);
+    setFrase(frase[0]);
   }
   return (
     <Contenedor>
