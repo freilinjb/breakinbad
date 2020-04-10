@@ -21,9 +21,14 @@ const Contenedor = styled.div`
 function App() {
 
   const consultarAPI = () => {
-    console.log('Consultando...');
-    
+    const resultado = fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes');
 
+    const frase = resultado.then(respuesta => respuesta.json());
+    frase.then(resultado => console.log(resultado));
+
+    console.log(frase);
+    
+    
   }
   return (
     <Contenedor>
