@@ -20,15 +20,11 @@ const Contenedor = styled.div`
 
 function App() {
 
-  const consultarAPI = () => {
-    const resultado = fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes');
+  const consultarAPI = async () => {
+    const api = await fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes');
 
-    const frase = resultado.then(respuesta => respuesta.json());
-    frase.then(resultado => console.log(resultado));
-
+    const frase = await api.json();
     console.log(frase);
-    
-    
   }
   return (
     <Contenedor>
